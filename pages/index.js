@@ -2,21 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 // import styles from './css/style.css'
 import Link from 'next/link'
-import {
-  product01,
-  product02,
-  product03,
-  product04,
-  product05,
-  product06,
-  product07,
-  product08,
-  product09,
-  shop01,
-  shop02,
-  shop03,
-  hotdeal, logo
-} from './img/index.js'
+import shop01 from "../pages/img/shop01.png"
+import shop02 from "../pages/img/shop02.png"
+import shop03 from "../pages/img/shop03.png"
+import product06 from "../pages/img/product06.png"
+import logo from "../pages/img/logo.png"
+
 
 export default function Home() {
   return (
