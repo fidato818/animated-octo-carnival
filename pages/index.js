@@ -7,11 +7,67 @@ import shop02 from "../pages/img/shop02.png"
 import shop03 from "../pages/img/shop03.png"
 import product06 from "../pages/img/product06.png"
 import logo from "../pages/img/logo.png"
-
+import Slider from "react-slick";
 
 export default function Home() {
+
+  var setting1 = {
+    arrows: false,
+    dots: false,
+    infinite: true,
+    // slidesPerRow: 4,
+    slidesToShow: 3,
+    // slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    // className: "center",
+    // centerMode: true,
+    // centerPadding: "60px",
+    vertical: true,
+    verticalSwiping: true,
+
+  }
+  var settings = {
+    arrows: false,
+    dots: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    nextArrow: "",
+    prevArrow: '',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
-    <>
+    <div>
 
       <Head>
         {/* <meta charset="utf-8" /> */}
@@ -30,7 +86,7 @@ export default function Home() {
         {/* <![endif]--> */}
 
       </Head>
-      <body>
+      <div>
         {/* <!-- HEADER --> */}
         <header>
           {/* <!-- TOP HEADER --> */}
@@ -269,182 +325,301 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* <!-- /section title -->
-
-                      <!-- Products tab & slick --> */}
               <div className="col-md-12">
-                <div style={{ display: 'flex', }}>
-
-                  <div className="product" style={{ width: '263px', marginLeft: '20px', height: 'fit-content' }}>
-                    <div className="product-Image ">
-                      <Image src={product06} alt="" />
-                      <div className="product-label" >
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          right: '15px'
-                        }}>-30%</span>
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          left: '15px'
-                        }}>NEW</span>
+                <Slider {...settings}>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      {/* <div className="product " style={{}}> */}
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px'
+                          }}>-30%</span>
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px'
+                          }}>NEW</span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="product-body">
-                      <p className="product-category">Category</p>
-                      <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                      <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      <div className="product-rating">
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
                       </div>
-                      <div className="product-btns">
-                        <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                        <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                        <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
-                      </div>
-                    </div>
-                    <div className="add-to-cart">
-                      <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                  </div>
-                  <div className="product" style={{ width: '263px', marginLeft: '20px', height: 'fit-content' }}>
-                    <div className="product-Image ">
-                      <Image src={product06} alt="" />
-                      <div className="product-label" >
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          right: '15px'
-                        }}>-30%</span>
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          left: '15px'
-                        }}>NEW</span>
-                      </div>
-                    </div>
-                    <div className="product-body">
-                      <p className="product-category">Category</p>
-                      <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                      <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      <div className="product-rating">
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                      </div>
-                      <div className="product-btns">
-                        <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                        <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                        <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
-                      </div>
-                    </div>
-                    <div className="add-to-cart">
-                      <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      {/* <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div> */}
                     </div>
                   </div>
-                  <div className="product" style={{ width: '263px', marginLeft: '20px', height: 'fit-content' }}>
-                    <div className="product-Image ">
-                      <Image src={product06} alt="" />
-                      <div className="product-label" >
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          right: '15px'
-                        }}>-30%</span>
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          left: '15px'
-                        }}>NEW</span>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px'
+                          }}>-30%</span>
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px'
+                          }}>NEW</span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="product-body">
-                      <p className="product-category">Category</p>
-                      <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                      <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      <div className="product-rating">
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
                       </div>
-                      <div className="product-btns">
-                        <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                        <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                        <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                       </div>
-                    </div>
-                    <div className="add-to-cart">
-                      <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                     </div>
                   </div>
-                  <div className="product" style={{ width: '263px', marginLeft: '20px', height: 'fit-content' }}>
-                    <div className="product-Image ">
-                      <Image src={product06} alt="" />
-                      <div className="product-label" >
-                        <span style={{
-                          position: 'absolute',
-                          top: '15px',
-                          right: '15px',
-                          backgroundColor: ' #FFF',
-                          borderColor: '#D10024',
-                          color: '#D10024',
-                          border: '2px solid',
-                          padding: '2px 10px',
-                          fontSize: '12px',
-
-                        }}>-30%</span>
-                        <span style={{
-
-
-                          position: 'absolute',
-                          top: '15px',
-                          left: '15px',
-                          backgroundColor: '#D10024',
-                          borderColor: '#D10024',
-                          color: '#FFF',
-                          border: '2px solid',
-                          padding: '2px 10px',
-                          fontSize: '12px',
-                        }}>NEW</span>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px'
+                          }}>-30%</span>
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px'
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                       </div>
                     </div>
-                    <div className="product-body">
-                      <p className="product-category">Category</p>
-                      <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                      <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      <div className="product-rating">
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px',
+                            backgroundColor: ' #FFF',
+                            borderColor: '#D10024',
+                            color: '#D10024',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+
+                          }}>-30%</span>
+                          <span style={{
+
+
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px',
+                            backgroundColor: '#D10024',
+                            borderColor: '#D10024',
+                            color: '#FFF',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+                          }}>NEW</span>
+                        </div>
                       </div>
-                      <div className="product-btns">
-                        <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                        <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                        <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
                       </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+
+
+
                     </div>
-                    <div className="add-to-cart">
-                      <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px',
+                            backgroundColor: ' #FFF',
+                            borderColor: '#D10024',
+                            color: '#D10024',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+
+                          }}>-30%</span>
+                          <span style={{
+
+
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px',
+                            backgroundColor: '#D10024',
+                            borderColor: '#D10024',
+                            color: '#FFF',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px',
+                            backgroundColor: ' #FFF',
+                            borderColor: '#D10024',
+                            color: '#D10024',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+
+                          }}>-30%</span>
+                          <span style={{
+
+
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px',
+                            backgroundColor: '#D10024',
+                            borderColor: '#D10024',
+                            color: '#FFF',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+
+
+
                     </div>
                   </div>
 
-
-
-                  {/* <!-- /product --> */}
-                </div>
+                </Slider>
               </div>
-              {/* <!-- Products tab & slick -->/ */}
+
             </div>
             {/* <!-- /row --> */}
           </div>
@@ -519,146 +694,300 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* <!-- /section title -->
-
-                      <!-- Products tab & slick --> */}
               <div className="col-md-12">
-                {/* <div > */}
-                <div >
-
-                  <div>
-                    {/* <!-- tab --> */}
-                    <div >
-                      <div style={{ display: 'flex', }}>
-
-                        <div className="product" style={{ width: '263px' }}>
-                          <div className="product-Image">
-                            <Image src={product06} alt="" />
-                            <div className="product-label">
-                              <span className="sale">-30%</span>
-                              <span className="new">NEW</span>
-                            </div>
-                          </div>
-                          <div className="product-body">
-                            <p className="product-category">Category</p>
-                            <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                            <div className="product-rating">
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                            </div>
-                            <div className="product-btns">
-                              <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                              <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                              <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
-                            </div>
-                          </div>
-                          <div className="add-to-cart">
-                            <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
-                          </div>
+                <Slider {...settings}>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      {/* <div className="product " style={{}}> */}
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px'
+                          }}>-30%</span>
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px'
+                          }}>NEW</span>
                         </div>
-                        <div className="product" style={{ width: '263px', marginLeft: '20px' }}>
-                          <div className="product-Image ">
-                            <Image src={product06} alt="" />
-                            <div className="product-label">
-                              <span className="sale">-30%</span>
-                              <span className="new">NEW</span>
-                            </div>
-                          </div>
-                          <div className="product-body">
-                            <p className="product-category">Category</p>
-                            <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                            <div className="product-rating">
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                            </div>
-                            <div className="product-btns">
-                              <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                              <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                              <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
-                            </div>
-                          </div>
-                          <div className="add-to-cart">
-                            <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
-                          </div>
-                        </div>
-                        <div className="product" style={{ width: '263px', marginLeft: '20px' }}>
-                          <div className="product-Image ">
-                            <Image src={product06} alt="" />
-                            <div className="product-label">
-                              <span className="sale">-30%</span>
-                              <span className="new">NEW</span>
-                            </div>
-                          </div>
-                          <div className="product-body">
-                            <p className="product-category">Category</p>
-                            <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                            <div className="product-rating">
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                            </div>
-                            <div className="product-btns">
-                              <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                              <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                              <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
-                            </div>
-                          </div>
-                          <div className="add-to-cart">
-                            <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
-                          </div>
-                        </div>
-                        <div className="product" style={{ width: '263px', marginLeft: '20px' }}>
-                          <div className="product-Image ">
-                            <Image src={product06} alt="" />
-                            <div className="product-label">
-                              <span className="sale">-30%</span>
-                              <span className="new">NEW</span>
-                            </div>
-                          </div>
-                          <div className="product-body">
-                            <p className="product-category">Category</p>
-                            <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                            <div className="product-rating">
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                            </div>
-                            <div className="product-btns">
-                              <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
-                              <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                              <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
-                            </div>
-                          </div>
-                          <div className="add-to-cart">
-                            <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
-                          </div>
-                        </div>
-
-
-
-                        {/* <!-- /product --> */}
                       </div>
-                      <div id="slick-nav-2" className="products-slick-nav"></div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      {/* <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div> */}
                     </div>
-                    {/* <!-- /tab --> */}
                   </div>
-                </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px'
+                          }}>-30%</span>
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px'
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px'
+                          }}>-30%</span>
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px'
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px',
+                            backgroundColor: ' #FFF',
+                            borderColor: '#D10024',
+                            color: '#D10024',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+
+                          }}>-30%</span>
+                          <span style={{
+
+
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px',
+                            backgroundColor: '#D10024',
+                            borderColor: '#D10024',
+                            color: '#FFF',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px',
+                            backgroundColor: ' #FFF',
+                            borderColor: '#D10024',
+                            color: '#D10024',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+
+                          }}>-30%</span>
+                          <span style={{
+
+
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px',
+                            backgroundColor: '#D10024',
+                            borderColor: '#D10024',
+                            color: '#FFF',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                  <div className="col-md-3 col-xs-6">
+                    <div className="product" style={{}}>
+                      <div className="product-Image ">
+                        <Image src={product06} alt="" />
+                        <div className="product-label" >
+                          <span style={{
+                            position: 'absolute',
+                            top: '15px',
+                            right: '15px',
+                            backgroundColor: ' #FFF',
+                            borderColor: '#D10024',
+                            color: '#D10024',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+
+                          }}>-30%</span>
+                          <span style={{
+
+
+                            position: 'absolute',
+                            top: '15px',
+                            left: '15px',
+                            backgroundColor: '#D10024',
+                            borderColor: '#D10024',
+                            color: '#FFF',
+                            border: '2px solid',
+                            padding: '2px 10px',
+                            fontSize: '12px',
+                          }}>NEW</span>
+                        </div>
+                      </div>
+                      <div className="product-body">
+                        <p className="product-category">Category</p>
+                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                        <div className="product-rating">
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                          <i className="fa fa-star"></i>
+                        </div>
+                        <div className="product-btns">
+                          <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                          <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
+                          <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                        </div>
+                      </div>
+                      <div className="add-to-cart">
+                        <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+
+                </Slider>
               </div>
-              {/* <!-- /Products tab & slick --> */}
             </div>
             {/* <!-- /row --> */}
           </div>
@@ -680,12 +1009,12 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="products-widget-slick" data-nav="#slick-nav-3">
-                  <div>
-                    {/* <!-- product widget --> */}
+                <div className="products-widget-slick" data-nav="#slick-nav-3" style={{ width: '345px' }}>
+                  <Slider {...setting1}>
+                    {/* <div> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product07.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -693,12 +1022,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product08.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -706,12 +1032,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product09.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -719,14 +1042,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- product widget --> */}
-                  </div>
-
-                  <div>
-                    {/* <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image/shop01.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -734,51 +1052,26 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                    <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image/shop01.png" alt="" width="64" height="64" />
-                      </div>
-                      <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      </div>
-                    </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                    <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product03.png" alt="" width="64" height="64" />
-                      </div>
-                      <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      </div>
-                    </div>
-                    {/* <!-- product widget --> */}
-                  </div>
+                    {/* </div> */}
+                  </Slider>
                 </div>
+
               </div>
 
               <div className="col-md-4 col-xs-6">
                 <div className="section-title">
                   <h4 className="title">Top selling</h4>
                   <div className="section-nav">
-                    <div id="slick-nav-4" className="products-slick-nav"></div>
+                    <div id="slick-nav-3" className="products-slick-nav"></div>
                   </div>
                 </div>
 
-                <div className="products-widget-slick" data-nav="#slick-nav-4">
-                  <div>
-                    {/* <!-- product widget --> */}
+                <div className="products-widget-slick" data-nav="#slick-nav-3" style={{ width: '345px' }}>
+                  <Slider {...setting1}>
+                    {/* <div> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product04.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -786,12 +1079,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget --> */}
-
-                    {/* <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product05.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -799,12 +1089,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product06.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -812,14 +1099,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- product widget --> */}
-                  </div>
-
-                  <div>
-                    {/* <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product07.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -827,35 +1109,10 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget --> */}
-
-                    {/* <!-- product widget --> */}
-                    <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product08.png" alt="" width="64" height="64" />
-                      </div>
-                      <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      </div>
-                    </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                    <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product09.png" alt="" width="64" height="64" />
-                      </div>
-                      <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      </div>
-                    </div>
-                    {/* <!-- product widget --> */}
-                  </div>
+                    {/* </div> */}
+                  </Slider>
                 </div>
+
               </div>
 
               <div className="clearfix visible-sm visible-xs"></div>
@@ -864,16 +1121,16 @@ export default function Home() {
                 <div className="section-title">
                   <h4 className="title">Top selling</h4>
                   <div className="section-nav">
-                    <div id="slick-nav-5" className="products-slick-nav"></div>
+                    <div id="slick-nav-3" className="products-slick-nav"></div>
                   </div>
                 </div>
 
-                <div className="products-widget-slick" data-nav="#slick-nav-5">
-                  <div>
-                    {/* <!-- product widget --> */}
+                <div className="products-widget-slick" data-nav="#slick-nav-3" style={{ width: '345px' }}>
+                  <Slider {...setting1}>
+                    {/* <div> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image/shop01.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -881,12 +1138,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image/shop01.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -894,12 +1148,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget --> */}
-
-                    {/* <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product03.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -907,14 +1158,9 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- product widget --> */}
-                  </div>
-
-                  <div>
-                    {/* <!-- product widget --> */}
                     <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product04.png" alt="" width="64" height="64" />
+                      <div className="product-img">
+                        <Image src={product06} alt="" />
                       </div>
                       <div className="product-body">
                         <p className="product-category">Category</p>
@@ -922,35 +1168,10 @@ export default function Home() {
                         <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                       </div>
                     </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                    <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product05.png" alt="" width="64" height="64" />
-                      </div>
-                      <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      </div>
-                    </div>
-                    {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                    <div className="product-widget">
-                      <div className="product-Image ">
-                        <Image src="/Image /product06.png" alt="" width="64" height="64" />
-                      </div>
-                      <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                      </div>
-                    </div>
-                    {/* <!-- product widget --> */}
-                  </div>
+                    {/* </div> */}
+                  </Slider>
                 </div>
+
               </div>
 
             </div>
@@ -1078,10 +1299,10 @@ export default function Home() {
                     <li><a href="#"><i className="fa fa-cc-amex"></i></a></li>
                   </ul>
                   <span className="copyright">
-                    {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="noreferrer">Colorlib</a>.
+
+                    Copyright &copy;{new Date().getFullYear()} All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="noreferrer">Colorlib</a>.
                     Downloaded from <a href="https://themeslab.org/" target="_blank" rel="noreferrer">Themeslab</a>
-                    {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
+
                   </span>
                 </div>
               </div>
@@ -1096,8 +1317,8 @@ export default function Home() {
 		<!-- jQuery Plugins --> */}
         {/*  */}
 
-      </body>
+      </div>
 
-    </>
+    </div >
   )
 }
